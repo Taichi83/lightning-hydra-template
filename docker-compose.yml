@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  torch:
+    container_name: lightning-hydra-template
+    build:
+      context: .
+#      dockerfile: torch.gpu.Dockerfile
+    image: lightning-hydra-template:latest
+    tty: true
+    command: /bin/bash
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities:
+                - gpu
+    volumes:
+      - .:/workspace/project
+    ports:
+      - "8888:8888"
