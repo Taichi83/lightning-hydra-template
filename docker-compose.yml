@@ -4,7 +4,7 @@ services:
     container_name: lightning-hydra-template
     build:
       context: .
-#      dockerfile: torch.gpu.Dockerfile
+      dockerfile: Dockerfile
     image: lightning-hydra-template:latest
     tty: true
     command: /bin/bash

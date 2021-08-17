@@ -38,11 +38,13 @@ SHELL ["/bin/bash", "-c"]
 
 
 # Install requirements
-COPY requirements.txt ./
-RUN source activate ${CONDA_ENV_NAME} \
-    && pip install --no-cache-dir -r requirements.txt \
-    && rm requirements.txt
+RUN source activate ${CONDA_ENV_NAME}
 
+COPY requirements.txt ./
+#RUN source activate ${CONDA_ENV_NAME} \
+#    && pip install --no-cache-dir -r requirements.txt \
+#    && rm requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Uncomment this to install Apex for mixed-precision support
 # RUN source activate ${CONDA_ENV_NAME} \
